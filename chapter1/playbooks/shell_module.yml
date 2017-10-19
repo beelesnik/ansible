@@ -1,0 +1,13 @@
+---
+-  hosts: slave2
+   gather_facts: True
+   remote_user: sergei
+
+   tasks:
+
+     - name: List files in /tmp and redirect to a file
+       shell: /bin/ls -l /tmp > /tmp/list
+       sudo: yes
+
+     - name: Cat /tmp/list
+       shell: /bin/cat /tmp/list

@@ -1,0 +1,15 @@
+---
+-  hosts: slave2
+   gather_facts: True
+   remote_user: sergei
+
+   tasks:
+
+     - apt: name=git state=installed 
+       sudo: yes
+
+     - name: Checkout gitignore repository
+       git: repo=https://github.com/github/gitignore.git dest=/opt/gitignore
+       sudo: yes 
+
+

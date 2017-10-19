@@ -1,0 +1,11 @@
+---
+-  hosts: slave2
+   gather_facts: True
+   remote_user: sergei
+
+   tasks:
+
+     - name: Install mc
+       raw: apt-get -y install mc
+       sudo: yes
+

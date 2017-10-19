@@ -1,0 +1,12 @@
+---
+-  hosts: slave2
+   gather_facts: True
+   remote_user: sergei
+   tasks:
+
+     - include: install_apache.yml
+
+     - name: Check apache service
+       service: name={{ package_name  }} state=started
+       sudo: yes
+

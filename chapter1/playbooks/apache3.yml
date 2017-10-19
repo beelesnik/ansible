@@ -1,0 +1,22 @@
+---
+-  hosts: slave
+   gather_facts: True
+   remote_user: sergei
+
+   vars_files:
+     - var1.yml
+
+   tasks:
+
+     - name: Variable from vars file
+       debug: msg={{ package_name }}
+
+     - include: install_apache.yml
+
+     - name: Variable from included yml file 
+       debug: msg={{ package_name }}
+
+     - name: Check apache service
+       service: name={{ package_name  }} state=started
+       sudo: yes
+

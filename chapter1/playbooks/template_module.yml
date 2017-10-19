@@ -1,0 +1,9 @@
+---
+-  hosts: slave2
+   gather_facts: True
+   remote_user: sergei
+
+   tasks:
+
+     - name: Create a test template
+       template: src=test dest=/tmp/testfile mode=644

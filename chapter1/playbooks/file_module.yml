@@ -1,0 +1,10 @@
+---
+-  hosts: slave2
+   gather_facts: True
+   remote_user: sergei
+
+   tasks:
+
+     - name: Ensure apache2.conf has right permissions and owner/group
+       file: path=/etc/apache2/apache2.conf owner=root group=root mode=0644
+       sudo: yes

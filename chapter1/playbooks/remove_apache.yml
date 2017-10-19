@@ -1,0 +1,11 @@
+---
+-  hosts: slave
+   remote_user: sergei
+   tasks:
+
+     - name: Remove apache package
+       apt: name=apache2 state=absent
+       sudo: yes
+
+     - name: Show how debug works
+       debug: msg={{ ansible_distribution }}

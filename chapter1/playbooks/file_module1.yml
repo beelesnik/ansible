@@ -1,0 +1,10 @@
+---
+-  hosts: slave2
+   gather_facts: True
+   remote_user: sergei
+
+   tasks:
+
+     - name: Create a symlink in /tmp for apache2.conf
+       file: src=/etc/apache2/apache2.conf dest=/tmp/apache2.conf owner=root group=root state=link
+       sudo: yes
